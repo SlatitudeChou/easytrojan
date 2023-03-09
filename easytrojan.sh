@@ -46,7 +46,7 @@ esac
 
 curl -L $caddy_url | tar -zx -C /usr/local/bin caddy
 
-/usr/local/bin/caddy add-package github.com/imgk/caddy-trojan@8d46fda7c33580ed047d557fc97b512a42ec398b
+/usr/local/bin/caddy add-package github.com/imgk/caddy-trojan
 if ! /usr/local/bin/caddy build-info 2>&1 | grep caddy-trojan; then echo "Error: Failed to add-package caddy-trojan"; exit 1; fi
 
 if ! id caddy &>/dev/null; then groupadd --system caddy; useradd --system -g caddy -s "$(command -v nologin)" caddy; fi
